@@ -6,7 +6,7 @@ import NavBar from "./navbar";
 //   id: string;
 //   country: string;
 // }
-export default function Provider({ user }) {
+export default function Provider({ user, isOpen }) {
   const factory = SplitFactory({
     core: {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_KEY || "",
@@ -15,7 +15,7 @@ export default function Provider({ user }) {
   });
   return (
     <SplitFactoryProvider factory={factory}>
-      <NavBar user={user} />
+      <NavBar user={user} isOpen={isOpen} />
     </SplitFactoryProvider>
   );
 }

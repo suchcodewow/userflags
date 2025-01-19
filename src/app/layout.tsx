@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
-      <body className="min-h-screen w-screen bg-slate-800">
+    <html lang="en" className="light bg-white  overflow-hidden hover:overflow-auto">
+      <body className="min-h-screen w-screen ">
         <Providers>
           <main className="flex-grow">{children}</main>
         </Providers>
