@@ -2,7 +2,7 @@
 
 import Provider from "@/components/provider";
 import { Switch } from "@heroui/switch";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { genConfig } from "react-nice-avatar";
 
 const avatarDefault = {
@@ -15,7 +15,7 @@ const avatarDefault = {
   hatColor: "#D2EFF3",
   eyeBrowStyle: "up",
   shirtColor: "#9287FF",
-  bgColor: "#DFDFDF",
+  bgColor: "#999999",
 };
 
 const users = [
@@ -25,24 +25,28 @@ const users = [
   { id: "MPoppins", country: "DK", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
   { id: "WWonka", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "thick", hairColor: "#fff", ...avatarDefault }) },
   { id: "HHill", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#000", ...avatarDefault }) },
-  { id: "EDoolittle", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "womanShort", hairColor: "#fff", ...avatarDefault }) },
+  { id: "EDoolittle", country: "FR", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "womanShort", hairColor: "#fff", ...avatarDefault }) },
   { id: "OTwist", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
   { id: "SKrelborn", country: "DK", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
   { id: "PKing", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "mohawk", hairColor: "#fff", ...avatarDefault }) },
   { id: "SOlsson", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
+  { id: "STodd", country: "FR", avatar: genConfig({ sex: "man", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "thick", hairColor: "#999", ...avatarDefault }) },
+  { id: "DWarbucks", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
+  { id: "AOakley", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
 ];
 
 export default function Home() {
-  const [isOpen, setOpen] = useState(() => {
-    // Get initial value from local storage on component mount
-    const storedValue = localStorage.getItem("myValue");
-    return storedValue ? JSON.parse(storedValue) : false;
-  });
-  useEffect(() => {
-    // Update local storage whenever value changes
-    localStorage.setItem("myValue", JSON.stringify(isOpen));
-  }, [isOpen]);
-  // const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+  // useEffect(() => {
+  //   const storedValue = localStorage.getItem("myValue");
+  //   if (storedValue === "true") {
+  //     setOpen(true);
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("myValue", JSON.stringify(isOpen));
+  // }, [isOpen]);
+
   return (
     <div>
       <Switch isSelected={isOpen} onValueChange={() => (isOpen ? setOpen(false) : setOpen(true))} size="sm" color="success" />

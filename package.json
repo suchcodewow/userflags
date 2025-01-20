@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroui/react": "^2.6.13",
+    "@splitsoftware/browser-rum-agent": "^1.0.0",
     "@splitsoftware/splitio-react": "^2.0.1",
     "country-flag-icons": "^1.5.14",
     "framer-motion": "^11.18.1",
