@@ -37,9 +37,9 @@ export default function NavBar({ user, isOpen }) {
           <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
             <CardBody className="p-0 h-10">
               <Navbar isBordered className="bg-slate-200 overflow-hidden ">
-                <NavbarContent justify="start" className="gap-2">
+                <NavbarContent justify="start">
                   <NavbarItem>Menu</NavbarItem>
-                  <NavbarItem isActive>Contact</NavbarItem>
+                  <NavbarItem isActive>Contact Us</NavbarItem>
                   {OneView === "on" && (
                     <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
                       <NavbarItem className="text-sm">OmniView</NavbarItem>
@@ -73,9 +73,9 @@ export default function NavBar({ user, isOpen }) {
           <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
             <CardBody className="p-0 h-10">
               <Navbar isBordered className="bg-slate-200 overflow-hidden">
-                <NavbarContent justify="start" className="gap-2">
+                <NavbarContent justify="start">
                   <NavbarItem>Menu</NavbarItem>
-                  <NavbarItem>Contact</NavbarItem>
+                  <NavbarItem>Contact Us</NavbarItem>
                   {OneView === "on" && (
                     <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
                       <NavbarItem className="text-sm">OmniView</NavbarItem>

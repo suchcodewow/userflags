@@ -10,6 +10,7 @@ export default function Provider({ user, isOpen }) {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_KEY || "",
       key: user.id,
     },
+    debug: true,
   });
   return (
     <SplitFactoryProvider factory={factory}>
