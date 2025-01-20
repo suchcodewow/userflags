@@ -2,10 +2,6 @@
 import { SplitFactory, SplitFactoryProvider } from "@splitsoftware/splitio-react";
 import NavBar from "./navbar";
 
-// interface User {
-//   id: string;
-//   country: string;
-// }
 export default function Provider({ user, isOpen }) {
   const factory = SplitFactory({
     core: {

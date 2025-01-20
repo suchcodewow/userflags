@@ -46,14 +46,16 @@ export default function NavBar({ user, isOpen }) {
     <div>
       <Card radius="none" className="mt-1 mx-1 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
         <CardBody className="p-0 ">
-          <Navbar isBordered className="bg-slate-200 overflow-hidden">
+          <Navbar className="bg-slate-200 overflow-hidden">
             {isOpen ? (
               <NavbarContent justify="start">
+                <NavbarItem>Menu</NavbarItem>
                 <NavbarItem isActive>Contact</NavbarItem>
               </NavbarContent>
             ) : (
               <NavbarContent justify="start" className="gap-2">
                 <NavbarItem>Menu</NavbarItem>
+                <NavbarItem>Contact</NavbarItem>
                 {OneView === "on" && (
                   <Badge size="sm" color="primary" placement="top-right" content="new">
                     <NavbarItem>OneView</NavbarItem>
