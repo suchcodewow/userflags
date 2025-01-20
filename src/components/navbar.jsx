@@ -1,4 +1,5 @@
 "use client";
+// import splitFactory from "@/lib/split";
 import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarContent, NavbarItem } from "@heroui/navbar";
@@ -25,6 +26,8 @@ function FlagAtar({ country }) {
 }
 
 export default function NavBar({ user, isOpen, setOpen }) {
+  // const client = splitFactory.client("shawn");
+  // console.log(client);
   const featureName = "OneView";
   const { treatments, isReady } = useSplitTreatments({ names: ["OneView", "Contact_Us"] });
   const OneView = treatments["OneView"].treatment;

@@ -1,4 +1,5 @@
 import Providers from "@/lib/providers";
+
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   description: "My App",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
