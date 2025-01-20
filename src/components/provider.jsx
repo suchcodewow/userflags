@@ -1,10 +1,11 @@
 "use client";
+import { SplitRumAgent } from "@splitsoftware/browser-rum-agent";
 import { SplitFactory, SplitFactoryProvider } from "@splitsoftware/splitio-react";
 
 import NavBar from "./navbar";
 
-export default function Provider({ user, isOpen }) {
-  // SplitRumAgent.setup(process.env.NEXT_PUBLIC_SPLIT_KEY).addIdentities([{ key: user.id, trafficType: "a_traffic_type" }]);
+export default function Provider({ user, isOpen, setOpen }) {
+  SplitRumAgent.setup(process.env.NEXT_PUBLIC_SPLIT_KEY).addIdentities([{ key: user.id, trafficType: process.env.NEXT_PUBLIC_TRAFFIC_TYPE }]);
   const factory = SplitFactory({
     core: {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_KEY || "",
@@ -14,7 +15,7 @@ export default function Provider({ user, isOpen }) {
   });
   return (
     <SplitFactoryProvider factory={factory}>
-      <NavBar user={user} isOpen={isOpen} />
+      <NavBar user={user} isOpen={isOpen} setOpen={setOpen} />
     </SplitFactoryProvider>
   );
 }

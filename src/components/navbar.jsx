@@ -2,7 +2,7 @@
 import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarContent, NavbarItem } from "@heroui/navbar";
-import { Badge } from "@heroui/react";
+import { Alert, Badge } from "@heroui/react";
 import { useSplitTreatments } from "@splitsoftware/splitio-react";
 import { CA, DK, FR, GB, US } from "country-flag-icons/react/3x2";
 import Avatar from "react-nice-avatar";
@@ -24,10 +24,11 @@ function FlagAtar({ country }) {
   }
 }
 
-export default function NavBar({ user, isOpen }) {
+export default function NavBar({ user, isOpen, setOpen }) {
   const featureName = "OneView";
   const { treatments, isReady } = useSplitTreatments({ names: ["OneView", "Contact_Us"] });
   const OneView = treatments["OneView"].treatment;
+  console.log("new Oneview: ", OneView);
   const ContactUs = treatments["Contact_Us"];
   const ContactUsValue = JSON.parse(ContactUs.config);
   return isReady ? (
@@ -36,13 +37,15 @@ export default function NavBar({ user, isOpen }) {
         <div>
           <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
             <CardBody className="p-0 h-10">
-              <Navbar isBordered className="bg-slate-200 overflow-hidden ">
+              <Navbar onClick={() => (isOpen ? setOpen(false) : setOpen(true))} isBordered className="bg-slate-200 overflow-hidden ">
                 <NavbarContent justify="start">
-                  <NavbarItem>Menu</NavbarItem>
-                  <NavbarItem isActive>Contact Us</NavbarItem>
+                  <NavbarItem className="cursor-pointer">Menu</NavbarItem>
+                  <NavbarItem className="cursor-pointer" isActive>
+                    Contact Us
+                  </NavbarItem>
                   {OneView === "on" && (
                     <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
-                      <NavbarItem className="text-sm">OmniView</NavbarItem>
+                      <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
                     </Badge>
                   )}
                 </NavbarContent>
@@ -58,11 +61,13 @@ export default function NavBar({ user, isOpen }) {
           <Card radius="none" shadow="none" className=" rounded-b-lg mx-2 h-32 border-b-1 border-r-1 border-l-1 border-slate-300">
             <CardBody className="flex flex-row">
               <Card radius="none" fullWidth shadow="none">
-                <CardBody>{ContactUsValue.message}</CardBody>
+                <CardBody className="align-middle">
+                  <Alert>{ContactUsValue.message}</Alert>
+                </CardBody>
               </Card>
               <Card radius="none" fullWidth shadow="none">
                 <CardBody>
-                  <Image height={100} isBlurred alt="alt image" src={ContactUsValue.image} />
+                  <Image height={100} alt="alt image" src={ContactUsValue.image} />
                 </CardBody>
               </Card>
             </CardBody>
@@ -72,13 +77,13 @@ export default function NavBar({ user, isOpen }) {
         <div>
           <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
             <CardBody className="p-0 h-10">
-              <Navbar isBordered className="bg-slate-200 overflow-hidden">
+              <Navbar isBordered onClick={() => (isOpen ? setOpen(false) : setOpen(true))} className="bg-slate-200 overflow-hidden">
                 <NavbarContent justify="start">
-                  <NavbarItem>Menu</NavbarItem>
-                  <NavbarItem>Contact Us</NavbarItem>
+                  <NavbarItem className="cursor-pointer">Menu</NavbarItem>
+                  <NavbarItem className="cursor-pointer">Contact Us</NavbarItem>
                   {OneView === "on" && (
                     <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
-                      <NavbarItem className="text-sm">OmniView</NavbarItem>
+                      <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
                     </Badge>
                   )}
                 </NavbarContent>
@@ -90,7 +95,7 @@ export default function NavBar({ user, isOpen }) {
               </Navbar>
             </CardBody>
           </Card>
-          <Card radius="none" shadow="none" className="rounded-b-lg mx-2 h-4 border-b-1 border-r-1 border-l-1 border-slate-300">
+          <Card radius="none" shadow="none" className="bg-gradient-to-b from-slate-400 to-slate-700  mx-2 h-4 ">
             <CardBody></CardBody>
           </Card>
         </div>

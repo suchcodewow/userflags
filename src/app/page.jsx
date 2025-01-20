@@ -1,8 +1,8 @@
 "use client";
 
 import Provider from "@/components/provider";
-import { Switch } from "@heroui/switch";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { genConfig } from "react-nice-avatar";
 
 const avatarDefault = {
@@ -37,22 +37,24 @@ const users = [
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
-  // useEffect(() => {
-  //   const storedValue = localStorage.getItem("myValue");
-  //   if (storedValue === "true") {
-  //     setOpen(true);
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   localStorage.setItem("myValue", JSON.stringify(isOpen));
-  // }, [isOpen]);
+  const router = useRouter();
+  useEffect(() => {
+    const storedValue = localStorage.getItem("myValue");
+    if (storedValue === "true") {
+      setOpen(true);
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("myValue", JSON.stringify(isOpen));
+  }, [isOpen]);
 
   return (
     <div>
-      <Switch isSelected={isOpen} onValueChange={() => (isOpen ? setOpen(false) : setOpen(true))} size="sm" color="success" />
+      {/* <Switch isSelected={isOpen} onValueChange={() => (isOpen ? setOpen(false) : setOpen(true))} size="sm" color="success" />
+      <Button onPress={() => router.refresh()}>refrash</Button> */}
       <div className="flex flex-col gap-1">
         {users.map((user, index) => (
-          <Provider isOpen={isOpen} key={index} user={user} />
+          <Provider isOpen={isOpen} setOpen={setOpen} key={index} user={user} />
         ))}
       </div>
     </div>
