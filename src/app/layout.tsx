@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "My App",
   description: "My App",
 };
+// Remove warning for many listeners
+// TODO: Move to singleton Factory model at some point when streaming is supported
+process.setMaxListeners(0);
 
 export default function RootLayout({
   children,
