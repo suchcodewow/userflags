@@ -9,9 +9,9 @@ export default function Provider({ user, isOpen, setOpen }) {
   const factory = SplitFactory({
     core: {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_KEY || "",
-      key: user.id,
+      key: "anonymous",
     },
-    debug: true,
+    // debug: true,
   });
   return (
     <SplitFactoryProvider factory={factory}>

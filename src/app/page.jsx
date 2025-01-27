@@ -1,7 +1,6 @@
 "use client";
 
-import Provider from "@/components/provider";
-import { useRouter } from "next/navigation";
+import NavBar from "@/components/navbar";
 import { useEffect, useState } from "react";
 import { genConfig } from "react-nice-avatar";
 
@@ -37,7 +36,7 @@ const users = [
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
   useEffect(() => {
     const storedValue = localStorage.getItem("myValue");
     if (storedValue === "true") {
@@ -50,11 +49,10 @@ export default function Home() {
 
   return (
     <div>
-      {/* <Switch isSelected={isOpen} onValueChange={() => (isOpen ? setOpen(false) : setOpen(true))} size="sm" color="success" />
-      <Button onPress={() => router.refresh()}>refrash</Button> */}
       <div className="flex flex-col gap-1">
         {users.map((user, index) => (
-          <Provider isOpen={isOpen} setOpen={setOpen} key={index} user={user} />
+          // <Provider isOpen={isOpen} setOpen={setOpen} key={index} user={user} />
+          <NavBar isOpen={isOpen} setOpen={setOpen} key={index} user={user} />
         ))}
       </div>
     </div>

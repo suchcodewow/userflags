@@ -3,7 +3,7 @@ import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Alert, Badge } from "@heroui/react";
-import { useSplitTreatments } from "@splitsoftware/splitio-react";
+import { useSplitClient } from "@splitsoftware/splitio-react";
 import { CA, DK, FR, GB, US } from "country-flag-icons/react/3x2";
 import Avatar from "react-nice-avatar";
 
@@ -25,11 +25,13 @@ function FlagAtar({ country }) {
 }
 
 export default function NavBar({ user, isOpen, setOpen }) {
-  const featureName = "OneView";
-  const { treatments, isReady } = useSplitTreatments({ names: ["OneView", "Contact_Us"] });
-  const OneView = treatments["OneView"].treatment;
-  console.log("new Oneview: ", OneView);
-  const ContactUs = treatments["Contact_Us"];
+  const { client, isReady } = useSplitClient({ splitKey: user.id });
+  // const { treatments, isReady } = useSplitTreatments({ splitKey: user.id }, { names: ["OneView", "Contact_Us"] });
+  const treatments = client.getTreatmentsWithConfig(["OneView", "Contact_Us"]);
+
+  const OneView = treatments.OneView.treatment;
+  const ContactUs = treatments.Contact_Us;
+  console.log(treatments);
   const ContactUsValue = JSON.parse(ContactUs.config);
   return isReady ? (
     <div>
@@ -67,7 +69,7 @@ export default function NavBar({ user, isOpen, setOpen }) {
               </Card>
               <Card radius="none" fullWidth shadow="none">
                 <CardBody>
-                  <Image height={100} alt="alt image" src={ContactUsValue.image} />
+                  <Image height={70} alt="alt image" src={ContactUsValue.image} />
                 </CardBody>
               </Card>
             </CardBody>
