@@ -21,19 +21,23 @@ const avatarDefault = {
 
 const users = [
   { id: "ABurr", country: "US", avatar: genConfig({ sex: "woman", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "thick", hairColor: "#DEBE99", ...avatarDefault }) },
-  { id: "RHart", country: "GB", avatar: genConfig({ sex: "woman", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "womanShort", hairColor: "#fff", ...avatarDefault }) },
+  { id: "RHart", country: "GB", avatar: genConfig({ sex: "woman", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "womanShort", hairColor: "#f1c27d", ...avatarDefault }) },
   { id: "WOz", country: "US", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#77311D", ...avatarDefault }) },
   { id: "MPoppins", country: "DK", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "normal", hairColor: "#9a3300", ...avatarDefault }) },
-  { id: "WWonka", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "thick", hairColor: "#fde8b6", ...avatarDefault }) },
-  { id: "HHill", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#000", ...avatarDefault }) },
-  { id: "EDoolittle", country: "FR", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "womanShort", hairColor: "#fff", ...avatarDefault }) },
-  { id: "OTwist", country: "GB", avatar: genConfig({ sex: "woman", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
+  { id: "WWonka", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#ffdbac", hairStyle: "thick", hairColor: "#fde8b6", ...avatarDefault }) },
+  { id: "HHill", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#e0ac69", hairStyle: "normal", hairColor: "#000", ...avatarDefault }) },
+  {
+    id: "EDoolittle",
+    country: "FR",
+    avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "womanShort", hairColor: "#f1c27d", ...avatarDefault }),
+  },
+  { id: "OTwist", country: "GB", avatar: genConfig({ sex: "woman", mouthStyle: "laugh", faceColor: "#ffdbac", hairStyle: "normal", hairColor: "#c37c56", ...avatarDefault }) },
   { id: "SKrelborn", country: "DK", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#DEBE99", ...avatarDefault }) },
   { id: "PKing", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#F9C9B6", hairStyle: "mohawk", hairColor: "#fff", ...avatarDefault }) },
   { id: "SOlsson", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#9a3300", ...avatarDefault }) },
-  { id: "STodd", country: "FR", avatar: genConfig({ sex: "woman", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "thick", hairColor: "#999", ...avatarDefault }) },
+  { id: "STodd", country: "FR", avatar: genConfig({ sex: "woman", mouthStyle: "laugh", faceColor: "#e0ac69", hairStyle: "thick", hairColor: "#9a3300", ...avatarDefault }) },
   { id: "DWarbucks", country: "GB", avatar: genConfig({ sex: "man", mouthStyle: "laugh", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#DEBE99", ...avatarDefault }) },
-  { id: "AOakley", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#fff", ...avatarDefault }) },
+  { id: "AOakley", country: "CA", avatar: genConfig({ sex: "man", mouthStyle: "peace", faceColor: "#AC6651", hairStyle: "normal", hairColor: "#9a3300", ...avatarDefault }) },
 ];
 
 export default function Home() {
