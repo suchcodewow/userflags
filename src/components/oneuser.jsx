@@ -24,7 +24,7 @@ function FlagAtar({ country }) {
   }
 }
 
-export default function NavBar({ user, isOpen, setOpen }) {
+export default function OneUser({ user, isOpen, setOpen }) {
   const { client, isReady } = useSplitClient({ splitKey: user.id });
   // const { treatments, isReady } = useSplitTreatments({ splitKey: user.id }, { names: ["OneView", "Contact_Us"] });
   const treatments = client.getTreatmentsWithConfig(["OneView", "Contact_Us"]);
