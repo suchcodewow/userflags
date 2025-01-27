@@ -35,31 +35,31 @@ export default function OneUser({ user, isOpen, setOpen }) {
   const ContactUsValue = JSON.parse(ContactUs.config);
   return isReady ? (
     <div>
+      <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
+        <CardBody className="p-0  h-10">
+          <Navbar onClick={() => (isOpen ? setOpen(false) : setOpen(true))} isBordered className="bg-slate-100 overflow-hidden ">
+            <NavbarContent justify="start">
+              <NavbarItem className="cursor-pointer">Menu</NavbarItem>
+              <NavbarItem className="cursor-pointer" isActive={isOpen}>
+                Contact Us
+              </NavbarItem>
+              {OneView === "on" && (
+                <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
+                  <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
+                </Badge>
+              )}
+            </NavbarContent>
+            <NavbarContent justify="end" className="gap-1">
+              <NavbarItem className="text-sm  text-slate-600 ">{user.id}</NavbarItem>
+              <Avatar className="w-8 h-8" {...user.avatar} />
+              <FlagAtar country={user.country} />
+            </NavbarContent>
+          </Navbar>
+        </CardBody>
+      </Card>
       {isOpen ? (
+        // Show Contact Us Page
         <div>
-          <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
-            <CardBody className="p-0 h-10">
-              <Navbar onClick={() => (isOpen ? setOpen(false) : setOpen(true))} isBordered className="bg-slate-200 overflow-hidden ">
-                <NavbarContent justify="start">
-                  <NavbarItem className="cursor-pointer">Menu</NavbarItem>
-                  <NavbarItem className="cursor-pointer" isActive>
-                    Contact Us
-                  </NavbarItem>
-                  {OneView === "on" && (
-                    <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
-                      <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
-                    </Badge>
-                  )}
-                </NavbarContent>
-                <NavbarContent justify="end" className="gap-1">
-                  <NavbarItem className="text-sm  text-slate-600 ">{user.id}</NavbarItem>
-                  <Avatar className="w-8 h-8" {...user.avatar} />
-                  <FlagAtar country={user.country} />
-                </NavbarContent>
-              </Navbar>
-            </CardBody>
-          </Card>
-
           <Card radius="none" shadow="none" className=" rounded-b-lg mx-2 h-32 border-b-1 border-r-1 border-l-1 border-slate-300">
             <CardBody className="flex flex-row">
               <Card radius="none" fullWidth shadow="none">
@@ -77,27 +77,7 @@ export default function OneUser({ user, isOpen, setOpen }) {
         </div>
       ) : (
         <div>
-          <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">
-            <CardBody className="p-0 h-10">
-              <Navbar isBordered onClick={() => (isOpen ? setOpen(false) : setOpen(true))} className="bg-slate-200 overflow-hidden">
-                <NavbarContent justify="start">
-                  <NavbarItem className="cursor-pointer">Menu</NavbarItem>
-                  <NavbarItem className="cursor-pointer">Contact Us</NavbarItem>
-                  {OneView === "on" && (
-                    <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
-                      <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
-                    </Badge>
-                  )}
-                </NavbarContent>
-                <NavbarContent justify="end" className="gap-1">
-                  <NavbarItem className="text-sm  text-slate-600 ">{user.id}</NavbarItem>
-                  <Avatar className="w-8 h-8" {...user.avatar} />
-                  <FlagAtar country={user.country} />
-                </NavbarContent>
-              </Navbar>
-            </CardBody>
-          </Card>
-          <Card radius="none" shadow="none" className="bg-gradient-to-b from-slate-400 to-slate-700  mx-2 h-4 ">
+          <Card radius="none" shadow="none" className="bg-gradient-to-b from-slate-400 bg-opacity-0  mx-2 h-2 ">
             <CardBody></CardBody>
           </Card>
         </div>
