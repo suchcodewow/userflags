@@ -3,16 +3,18 @@ import { FlagAtar } from "@/lib/user-library";
 import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarContent, NavbarItem } from "@heroui/navbar";
-import { Alert, Badge } from "@heroui/react";
+import { Badge } from "@heroui/react";
 import { useSplitClient } from "@splitsoftware/splitio-react";
 import Avatar from "react-nice-avatar";
 
 export default function OneUser({ user, isOpen, setOpen }) {
-  const { client, isReady } = useSplitClient({ splitKey: user.id });
-  // const { treatments, isReady } = useSplitTreatments({ splitKey: user.id }, { names: ["OneView", "Contact_Us"] });
+  const treatmentAttributes = {
+    Region: user.country,
+    Preview: user.preview,
+  };
+  const { client, isReady } = useSplitClient({ splitKey: user.id, attributes: treatmentAttributes });
   const treatments = client.getTreatmentsWithConfig(["OneView", "Contact_Us"]);
   const avatarConfig = user.avatar;
-  console.log(user.preview);
   if (user.preview) {
     avatarConfig.bgColor = "linear-gradient(45deg, #fb923c 0%, #fdba74 100%)";
   } else {
@@ -48,18 +50,22 @@ export default function OneUser({ user, isOpen, setOpen }) {
       {isOpen ? (
         // Show Contact Us Page
         <div>
-          <Card radius="none" shadow="none" className=" rounded-b-lg mx-2 h-32 border-b-1 border-r-1 border-l-1 border-slate-300">
-            <CardBody className="flex flex-row">
-              <Card radius="none" fullWidth shadow="none">
-                <CardBody className="align-middle">
-                  <Alert>{ContactUsValue.message}</Alert>
-                </CardBody>
-              </Card>
-              <Card radius="none" fullWidth shadow="none">
-                <CardBody>
-                  <Image height={70} alt="alt image" src={ContactUsValue.image} />
-                </CardBody>
-              </Card>
+          <Card
+            radius="none"
+            shadow="none"
+            className=" rounded-b-lg mx-2 px-12 py-0 h-32 border-b-1 border-r-1 border-l-1 border-slate-300 bg-gradient-to-t from-slate-200 toslate-100"
+          >
+            <CardBody className="p-2 flex-row">
+              <Image
+                alt="heroui logo"
+                height={110}
+                width={160}
+                src={ContactUsValue.image}
+                className="rounded-tr-none rounded-br-none"
+              />
+              <div className="w-full  flex align-middle bg-blue-400 text-white rounded-tr-xl rounded-br-xl">
+                <p className=" mx-auto text-base p-3 place-self-center">{ContactUsValue.message}</p>
+              </div>
             </CardBody>
           </Card>
         </div>
