@@ -1,37 +1,25 @@
 "use client";
+import { FlagAtar } from "@/lib/user-library";
 import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Navbar, NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Alert, Badge } from "@heroui/react";
 import { useSplitClient } from "@splitsoftware/splitio-react";
-import { CA, DK, FR, GB, US } from "country-flag-icons/react/3x2";
 import Avatar from "react-nice-avatar";
-
-function FlagAtar({ country }) {
-  switch (country) {
-    case "US":
-      return <US className="h-4  rounded-sm" />;
-    case "GB":
-      return <GB className="h-4  rounded-sm" />;
-    case "CA":
-      return <CA className="h-4  rounded-sm" />;
-    case "DK":
-      return <DK className="h-4  rounded-sm" />;
-    case "FR":
-      return <FR className="h-4  rounded-sm" />;
-    default:
-      return <p>!</p>;
-  }
-}
 
 export default function OneUser({ user, isOpen, setOpen }) {
   const { client, isReady } = useSplitClient({ splitKey: user.id });
   // const { treatments, isReady } = useSplitTreatments({ splitKey: user.id }, { names: ["OneView", "Contact_Us"] });
   const treatments = client.getTreatmentsWithConfig(["OneView", "Contact_Us"]);
-
+  const avatarConfig = user.avatar;
+  console.log(user.preview);
+  if (user.preview) {
+    avatarConfig.bgColor = "linear-gradient(45deg, #fb923c 0%, #fdba74 100%)";
+  } else {
+    avatarConfig.bgColor = "linear-gradient(45deg, #e2e8f0 0%, #f1f5f9 100%)";
+  }
   const OneView = treatments.OneView.treatment;
   const ContactUs = treatments.Contact_Us;
-  console.log(treatments);
   const ContactUsValue = JSON.parse(ContactUs.config);
   return isReady ? (
     <div>
@@ -51,7 +39,7 @@ export default function OneUser({ user, isOpen, setOpen }) {
             </NavbarContent>
             <NavbarContent justify="end" className="gap-1">
               <NavbarItem className="text-sm  text-slate-600 ">{user.id}</NavbarItem>
-              <Avatar className="w-8 h-8" {...user.avatar} />
+              <Avatar className="w-8 h-8" {...avatarConfig} />
               <FlagAtar country={user.country} />
             </NavbarContent>
           </Navbar>
