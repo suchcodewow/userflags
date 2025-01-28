@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My App",
-  description: "My App",
+  title: "Enterprise App",
+  description: "Enterprise App",
 };
 // Remove warning for many listeners
 // TODO: Move to singleton Factory model at some point when streaming is supported
