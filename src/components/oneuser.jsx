@@ -41,7 +41,7 @@ export default function OneUser({ user, isOpen, setOpen }) {
             </NavbarContent>
             <NavbarContent justify="end" className="gap-1">
               <NavbarItem className="text-sm  text-slate-600 ">{user.id}</NavbarItem>
-              <Avatar className="w-8 h-8" {...avatarConfig} />
+              <Avatar className="w-6 h-6" {...avatarConfig} />
               <FlagAtar country={user.country} />
             </NavbarContent>
           </Navbar>
