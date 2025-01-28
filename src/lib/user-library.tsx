@@ -4,7 +4,11 @@ import { genConfig } from "react-nice-avatar";
 // so fun :)
 // https://nice-avatar.wwayne.com/
 
-export function FlagAtar({ country }) {
+export interface FlagAtar {
+  country: string;
+}
+
+export function FlagAtar({ country }: FlagAtar) {
   switch (country) {
     case "US":
       return <US className="h-4  rounded-sm" />;
