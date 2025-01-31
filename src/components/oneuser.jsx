@@ -13,14 +13,14 @@ export default function OneUser({ user, isOpen, setOpen }) {
     Preview: user.preview,
   };
   const { client, isReady } = useSplitClient({ splitKey: user.id, attributes: treatmentAttributes });
-  const treatments = client.getTreatmentsWithConfig(["OneView", "Contact_Us"]);
+  const treatments = client.getTreatmentsWithConfig(["OmniView", "Contact_Us"]);
   const avatarConfig = user.avatar;
   if (user.preview) {
     avatarConfig.bgColor = "linear-gradient(45deg, #fb923c 0%, #fdba74 100%)";
   } else {
     avatarConfig.bgColor = "linear-gradient(45deg, #e2e8f0 0%, #f1f5f9 100%)";
   }
-  const OneView = treatments.OneView.treatment;
+  const OmniView = treatments.OmniView.treatment;
   const ContactUs = treatments.Contact_Us;
   const ContactUsValue = JSON.parse(ContactUs.config);
   return isReady ? (
@@ -33,7 +33,7 @@ export default function OneUser({ user, isOpen, setOpen }) {
               <NavbarItem className="cursor-pointer" isActive={isOpen}>
                 Contact Us
               </NavbarItem>
-              {OneView === "on" && (
+              {OmniView === "on" && (
                 <Badge size="sm" color="primary" shape="rectangle" showOutline="false" isDot variant="flat" content="beta">
                   <NavbarItem className="text-sm cursor-pointer">OmniView</NavbarItem>
                 </Badge>
