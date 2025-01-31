@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: globalcorpflags
-    image: suchcodewow/globalcorpflags
+    image: suchcodewow/globalcorpflags:2
     restart: always
     ports:
       - 80:3000
     environment:
-      PUBLIC_NEXT_SPLIT_KEY: ""
+      PUBLIC_NEXT_SPLIT_KEY: "example"
       NEXT_PUBLIC_TRAFFIC_TYPE: ""
