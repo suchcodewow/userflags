@@ -12,7 +12,7 @@ export default function Providers({ children }: { children: ReactNode }) {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_KEY || "",
       key: "anonymous",
     },
-    debug: true,
+    // debug: true,
   });
   const router = useRouter();
   return (
