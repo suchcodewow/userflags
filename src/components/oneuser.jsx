@@ -65,7 +65,7 @@ export default function OneUser({ user, isOpen, setOpen }) {
                 src={ContactUsValue.image}
                 className="rounded-tr-none rounded-br-none"
               />
-              <div className="w-full  flex align-middle bg-blue-400 text-white rounded-tr-xl rounded-br-xl">
+              <div className="w-full  flex align-middle border-blue-200 border-2 rounded-tr-xl rounded-br-xl">
                 <p className=" mx-auto text-base p-3 place-self-center">{ContactUsValue.message}</p>
               </div>
             </CardBody>
