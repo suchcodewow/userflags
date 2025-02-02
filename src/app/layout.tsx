@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 // Remove warning for many listeners
 // TODO: Move to singleton Factory model at some point when streaming is supported
-process.setMaxListeners(0);
+process.setMaxListeners(20);
 
 export default function RootLayout({
   children,

@@ -21,8 +21,10 @@ export default function OneUser({ user, isOpen, setOpen }) {
     avatarConfig.bgColor = "linear-gradient(45deg, #e2e8f0 0%, #f1f5f9 100%)";
   }
   const OmniView = treatments.OmniView.treatment;
+  console.log(user.id, treatmentAttributes, OmniView);
   const ContactUs = treatments.Contact_Us;
   const ContactUsValue = JSON.parse(ContactUs.config);
+
   return isReady ? (
     <div>
       <Card radius="none" className="mt-1 mx-2 rounded-t-lg border-t-1 border-r-1 border-l-1 border-slate-300 ">

@@ -30,6 +30,7 @@ export const users = [
     id: "ABurr",
 
     country: "US",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#AC6651",
@@ -51,6 +52,7 @@ export const users = [
   {
     id: "RHart",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#AC6651",
@@ -94,6 +96,7 @@ export const users = [
   {
     id: "MPoppins",
     country: "DK",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#F9C9B6",
@@ -115,6 +118,7 @@ export const users = [
   {
     id: "WWonka",
     country: "CA",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#F9C9B6",
@@ -136,6 +140,7 @@ export const users = [
   {
     id: "HHill",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#F9C9B6",
@@ -179,6 +184,7 @@ export const users = [
   {
     id: "OTwist",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#AC6651",
@@ -200,6 +206,7 @@ export const users = [
   {
     id: "SKrelborn",
     country: "DK",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#AC6651",
@@ -221,6 +228,7 @@ export const users = [
   {
     id: "PKing",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#AC6651",
@@ -242,6 +250,7 @@ export const users = [
   {
     id: "SOlsson",
     country: "CA",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#F9C9B6",
@@ -285,6 +294,7 @@ export const users = [
   {
     id: "DWarbucks",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#AC6651",
@@ -306,6 +316,7 @@ export const users = [
   {
     id: "MRose",
     country: "US",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#F9C9B6",
@@ -327,6 +338,7 @@ export const users = [
   {
     id: "EWoods",
     country: "CA",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#F9C9B6",
@@ -348,6 +360,7 @@ export const users = [
   {
     id: "EHansen",
     country: "CA",
+    preview: false,
     avatar: genConfig({
       sex: "woman",
       faceColor: "#F9C9B6",
@@ -369,6 +382,7 @@ export const users = [
   {
     id: "AHamilton",
     country: "GB",
+    preview: false,
     avatar: genConfig({
       sex: "man",
       faceColor: "#F9C9B6",
